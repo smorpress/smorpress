@@ -1,95 +1,19 @@
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SMØR Press</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Lucida Sans', sans-serif;
-      background-color: #ffeb3b;
-      color: #3b2c85;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem 2rem;
-      background-color: #ffeb3b;
-    }
-
-    nav a {
-      color: #3b2c85;
-      text-decoration: none;
-      font-family: 'Roboto Slab', serif;
-      font-size: 1.5rem;
-      font-weight: normal;
-    }
-
-    .content {
-      padding: 2rem;
-    }
-
-    h1, h2 {
-      font-family: 'Roboto Slab', serif;
-      font-weight: 400;
-    }
-
-    h1 {
-      font-size: 2rem;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-    }
-
-    section {
-      display: none;
-    }
-
-    section.active {
-      display: block;
-    }
-
-    .books-section {
-      display: flex;
-    }
-
-    .book-list {
-      width: 20%;
-      border-right: 2px solid #3b2c85;
-    }
-
-    .book-list div {
-      padding: 1rem;
-      border-bottom: 1px solid #3b2c85;
-      cursor: pointer;
-    }
-
-    .book-list div:hover {
-      background-color: #d1c4e9;
-    }
-
-    .book-preview {
-      flex-grow: 1;
-      padding: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .book-preview img {
-      max-width: 80%;
-      height: auto;
-      display: none;
-    }
-
-    .book-preview img.active {
-      display: block;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        flex-direction:
+<section id="about" class="active">
+  <div class="about-container">
+    <div class="about-text">
+      <p>Founded in 2017, this is a publishing and printing house run by the designer Joana Bruno and the artist Carlos A. Correia. SMØR specializes in riso printing technique to produce art publications, fanzines and other printed matter with the vision of supporting the printed matter as a very special artistic medium and a dissemination tool for artists.</p>
+    </div>
+    <div class="about-contact">
+      <h3>Contact</h3>
+      <p><a href="mailto:hei@smorpress.com">hei@smorpress.com</a></p>
+      <p><strong>Lademoen Kunstnerverksteder</strong><br/>Mellomveien 5, Trondheim</p>
+      <h3>Drop by</h3>
+      <p>If you have a project you would like to discuss, want to talk about the weather or just up for a coffee, drop us a line!</p>
+      <p>
+        <a href="https://www.instagram.com/smorpress" target="_blank" rel="noopener noreferrer" class="instagram-link" aria-label="Instagram smorpress">
+          <img src="instagram-icon.svg" alt="Instagram logo" class="instagram-icon" /> smorpress
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
