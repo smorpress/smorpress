@@ -1,10 +1,9 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SMØR Press</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -25,36 +24,25 @@
       color: #3b2c85;
       text-decoration: none;
       font-family: 'Roboto Slab', serif;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: normal;
-      text-transform: lowercase;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
     }
 
     .content {
       padding: 2rem;
     }
 
-    h1, h2, h3 {
+    h1, h2 {
       font-family: 'Roboto Slab', serif;
-      font-weight: normal;
-      margin-top: 0;
-      margin-bottom: 0.5rem;
+      font-weight: 400;
     }
 
     h1 {
-      font-size: 2.4rem;
+      font-size: 2rem;
     }
 
     h2 {
-      font-size: 1.8rem;
-    }
-
-    h3 {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
     }
 
     section {
@@ -65,52 +53,6 @@
       display: block;
     }
 
-    /* About section two columns */
-    .about-container {
-      display: flex;
-      gap: 2rem;
-      padding: 1rem 0;
-      flex-wrap: wrap;
-    }
-
-    .about-text, .about-contact {
-      flex: 1 1 300px;
-    }
-
-    .about-contact h3 {
-      font-weight: 400;
-    }
-
-    .about-contact p {
-      margin-top: 0.5rem;
-      line-height: 1.4;
-    }
-
-    .about-contact a {
-      color: #3b2c85;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .about-contact a:hover {
-      text-decoration: underline;
-    }
-
-    .instagram-link {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: 500;
-    }
-
-    .instagram-icon {
-      width: 20px;
-      height: 20px;
-      vertical-align: middle;
-      fill: #3b2c85;
-    }
-
-    /* Books section */
     .books-section {
       display: flex;
     }
@@ -182,37 +124,13 @@
 </head>
 <body>
   <nav>
-    <a href="#" onclick="showSection('books'); return false;">books</a>
-    <a href="#" onclick="showSection('studio'); return false;">studio&print</a>
-    <a href="#" onclick="showSection('about'); return false;">SMØR Press</a>
+    <a href="#" onclick="showSection('about')">SMØR Press</a>
+    <a href="#" onclick="showSection('studio')">studio&print</a>
+    <a href="#" onclick="showSection('books')">books</a>
   </nav>
-
   <div class="content">
     <section id="about" class="active">
-      <div class="about-container">
-        <div class="about-text">
-          <p>
-            Founded in 2017, this is a publishing and printing house run by the designer Joana Bruno and the artist Carlos A. Correia. SMØR specializes in riso printing technique to produce art publications, fanzines and other printed matter with the vision of supporting the printed matter as a very special artistic medium and a dissemination tool for artists.
-          </p>
-        </div>
-        <div class="about-contact">
-          <h3>Contact</h3>
-          <p><a href="mailto:hei@smorpress.com">hei@smorpress.com</a></p>
-          <p><strong>Lademoen Kunstnerverksteder</strong><br/>Mellomveien 5, Trondheim</p>
-          <h3>Drop by</h3>
-          <p>If you have a project you would like to discuss, want to talk about the weather or just up for a coffee, drop us a line!</p>
-          <p>
-            <a href="https://www.instagram.com/smorpress" target="_blank" rel="noopener noreferrer" class="instagram-link" aria-label="Instagram smorpress">
-              <svg class="instagram-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                <path d="M16 11.37a4 4 0 1 1-4.73-4.73 4 4 0 0 1 4.73 4.73z"/>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-              </svg>
-              smorpress
-            </a>
-          </p>
-        </div>
-      </div>
+      <p>Founded in 2017, this is a publishing and printing house run by the designer Joana Bruno and the artist Carlos A. Correia. SMØR specializes in riso printing technique to produce art publications, fanzines and other printed matter with the vision of supporting the printed matter as a very special artistic medium and a dissemination tool for artists.</p>
     </section>
 
     <section id="books">
