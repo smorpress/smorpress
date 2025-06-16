@@ -1,1 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMØR Press</title>
+  <link href="https://fonts.googleapis.com/css2?family=Arvo&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Lucida Sans', sans-serif;
+      background-color: #ffeb3b;
+      color: #3b2c85;
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-start;
+      gap: 2rem;
+      padding: 1rem 2rem;
+      background-color: #ffeb3b;
+    }
+
+    nav a {
+      color: #3b2c85;
+      text-decoration: none;
+      font-family: 'Arvo', serif;
+      font-size: 1.25rem;
+    }
+
+    .content {
+      padding: 2rem;
+    }
+
+    h1, h2 {
+      font-family: 'Arvo', serif;
+      font-weight: normal;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    section {
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    .books-section {
+      display: flex;
+    }
+
+    .book-list {
+      width: 20%;
+      border-right: 2px solid #3b2c85;
+    }
+
+    .book-list div {
+      padding: 1rem;
+      border-bottom: 1px solid #3b2c85;
+      cursor: pointer;
+    }
+
+    .book-list div:hover {
+      background-color: #d1c4e9;
+    }
+
+    .book-preview {
+      flex-grow: 1;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .book-preview img {
+      max-width: 80%;
+      height: auto;
+      display: none;
+    }
+
+    .book-preview img.active {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .books-section {
+        flex-direction: column;
+      }
+
+      .book-list {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #3b2c85;
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      .book-list div {
+        display: inline-block;
+        border-bottom: none;
+        border-right: 1px solid #3b2c85;
+      }
+
+      .book-preview {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#" onclick="showSection('books')">books</a>
+    <a href="#" onclick="showSection('studio')">studio&print</a>
+    <a href="#" onclick="showSection('about')">about</a>
+  </nav>
+  <div class="content">
+    <section id="about" class="active">
+      <h1>About</h1>
+      <p>Founded in 2017, SMØR Press is a publishing and printing house run by the designer Joana Bruno and the artist Carlos A. Correia. SMØR specializes in riso printing technique to produce art publications, fanzines and other printed matter with the vision of supporting the printed matter as a very special artistic medium and a dissemination tool for artists.</p>
+    </section>
+
+    <section id="books">
+      <h1>Books</h1>
+      <div class="books-section">
+        <div class="book-list">
+          <div onmouseover="showBookImage('edith')">Edith Lundebrekke</div>
+          <div onmouseover="showBookImage('william')">William A.F. Bentsen</div>
+          <div onmouseover="showBookImage('hilde')">Hilde Frantzen</div>
+          <div onmouseover="showBookImage('morgane')">Morgane Letot</div>
+          <div onmouseover="showBookImage('andreas')">Andreas Wallroth</div>
+          <div onmouseover="showBookImage('karoline')">Karoline Sætre</div>
+          <div onmouseover="showBookImage('karoline2')">Karoline Sætre om å vokse</div>
+          <div onmouseover="showBookImage('enrique')">Enrique Roura</div>
+          <div onmouseover="showBookImage('friends')">the friends</div>
+        </div>
+        <div class="book-preview">
+          <img id="edith" src="edith.jpg" alt="Edith Lundebrekke" />
+          <img id="william" src="william.jpg" alt="William A.F. Bentsen" />
+          <img id="hilde" src="hilde.jpg" alt="Hilde Frantzen" />
+          <img id="morgane" src="morgane.jpg" alt="Morgane Letot" />
+          <img id="andreas" src="andreas.jpg" alt="Andreas Wallroth" />
+          <img id="karoline" src="karoline.jpg" alt="Karoline Sætre" />
+          <img id="karoline2" src="karoline2.jpg" alt="Karoline Sætre om å vokse" />
+          <img id="enrique" src="enrique.jpg" alt="Enrique Roura" />
+          <img id="friends" src="friends.jpg" alt="the friends" />
+        </div>
+      </div>
+    </section>
+
+    <section id="studio">
+      <h1>Studio & Print</h1>
+      <h2>design:</h2>
+      <p>We receive artworks from talented people and help them develop their ideas. You are free to print or not with us, it's up to you. When it comes to graphic design, we do everything related to printed matter (publications, flyers, posters...), visual identity and advertisement.</p>
+      <h2>printing:</h2>
+      <p>RISO Printer-Duplicator is a stencil printer designed mainly for high-volume photocopying, duplicating and printing. We are using a Riso SF 9350 machine. You can print posters, business cards, brochures, publications or any other printed matter. If you think your project suits the Riso technique, you should try our services!</p>
+      <h2>studio visits:</h2>
+      <p>You are welcome to visit us at Svartlamon, Trondheim. Whether you want to discuss a project, see some of our books or simply have a chat about print, just send us an email at <a href="mailto:smorpress@gmail.com">smorpress@gmail.com</a> to make an appointment. We’d love to hear from you.</p>
+    </section>
+  </div>
+
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(sectionId).classList.add('active');
+    }
+
+    function showBookImage(id) {
+      document.querySelectorAll('.book-preview img').forEach(img => {
+        img.classList.remove('active');
+      });
+      const img = document.getElementById(id);
+      if (img) {
+        img.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
 
