@@ -21,6 +21,7 @@
     background: yellow;
     color: blue;
     font-family: 'Roboto Slab', serif;
+    font-size: 14px; /* base text size */
   }
 
   /* outer wrapper around the site with border flush to viewport */
@@ -33,11 +34,13 @@
     flex-direction: column;
   }
 
+  /* header same size as body text and reduced padding */
   header {
-    padding: 30px 40px;
-    font-size: 32px;
+    padding: 12px 40px;
+    font-size: 14px; /* same as body text */
     border-bottom: var(--outline-thickness) solid blue; /* horizontal divider for header */
     background: inherit;
+    line-height: 1.2;
   }
 
   .layout {
@@ -79,7 +82,7 @@
     border: none;
     color: blue;
     font-family: inherit;
-    font-size: 16px;
+    font-size: 14px;
     text-align: left;
     padding: 0;
     cursor: pointer;
@@ -118,18 +121,28 @@
     font-size: 14px;
   }
 
+  /* default larger top margin for in-section headings */
   h3 {
     margin-top: 30px;
     font-size: 18px;
   }
 
+  /* remove top margin when the heading is the first child of a section,
+     so the section content aligns with the nav links */
+  .content section > h3:first-child,
+  .content section > p:first-child {
+    margin-top: 0;
+  }
+
   p {
     font-size: 14px;
     line-height: 1.4;
+    margin-top: 0.6em;
   }
 
   ul {
     padding-left: 18px;
+    margin-top: 0.6em;
   }
 
   /* small visual helper for the colour swatches */
@@ -151,6 +164,7 @@
     .site::before {
       display: none;
     }
+    header { padding: 10px; }
   }
 </style>
 </head>
@@ -168,7 +182,6 @@
     <button class="active" onclick="showSection('books', this)">books</button>
     <button onclick="showSection('studio', this)">studio</button>
     <button onclick="showSection('about', this)">about</button>
-    <button onclick="showSection('contact', this)">contact</button>
   </nav>
 
   <!-- CENTER COLUMN -->
@@ -382,35 +395,6 @@
         Trøndhjem Kunstforening<br>
         Trøndelag senter for samtidskunst<br>
         Veslemøy Lilleengen
-      </p>
-
-      <h3>contact</h3>
-      <p>
-        smorpress(at)gmail.com<br>
-        Lademoen Kunstnerverksteder<br>
-        Trondheim
-      </p>
-    </section>
-
-    <!-- CONTACT (kept for compatibility; duplicates 'about' contact) -->
-    <section id="contact">
-      <p>
-        SMØR Press is an independent and small publishing house based in Trondheim.
-        Founded and run by the artist Carlos A. Correia and the designer Joana Bruno.
-      </p>
-
-      <h3>exhibitions / fairs / workshops</h3>
-      <p>
-        Trondheim Art Book Fair (2020)<br>
-        Risografi utstilling – BABEL (2018)<br>
-        Kunstbokmessen Bastard (2018–2019)<br>
-        Workshop on Risography – NTNU (2019)
-      </p>
-
-      <h3>clients / collaborations</h3>
-      <p>
-        NTNU, Trondheim kunstmuseum, Trøndelag senter for samtidskunst,
-        Nordenfjeldske Kunstindustrimuseum, Trondheim Open, Veslemøy Lilleengen
       </p>
 
       <h3>contact</h3>
