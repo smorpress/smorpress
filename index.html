@@ -103,6 +103,7 @@
 
   .content section {
     display: none;
+    max-width: 700px;
   }
 
   .content section.active {
@@ -131,6 +132,15 @@
     padding-left: 18px;
   }
 
+  /* small visual helper for the colour swatches */
+  .swatch {
+    display: inline-block;
+    width: 0.9em;
+    height: 0.9em;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
   /* responsive tweak */
   @media (max-width: 800px) {
     :root { --outline-thickness: 4px; } /* slightly thinner on small screens */
@@ -157,6 +167,7 @@
   <nav class="nav">
     <button class="active" onclick="showSection('books', this)">books</button>
     <button onclick="showSection('studio', this)">studio</button>
+    <button onclick="showSection('about', this)">about</button>
     <button onclick="showSection('contact', this)">contact</button>
   </nav>
 
@@ -211,52 +222,177 @@
 
     <!-- STUDIO -->
     <section id="studio">
+      <h3>design</h3>
       <p>
         We receive artworks from talented people and help them developing their ideas.
         You are free to print or not with us, it's up to you.
-      </p>
-      <p>
         When it comes to graphic design, we do everything related to printed matter
         (publications, flyers, posters...), visual identity and advertisement.
       </p>
 
       <h3>printing</h3>
       <p>
-        RISO Printer-Duplicator is a stencil printer designed mainly for high-volume
-        photocopying, duplicating and printing.
-      </p>
-      <p>
-        We are using a Riso SF 9350 machine.
+        RISO Printer-Duplicator is a stencil printer designed mainly for high-volume photocopying,
+        duplicating and printing. We are using a Riso SF 9350 machine and you can print posters,
+        business cards, brochures, publications or any other printed matter material.
+        If you think your project suits Riso technique you should try our services!
       </p>
 
       <h3>paper specifications</h3>
       <p>
-        Printable Area: 291 × 413mm<br>
+        Printable Area: 291 x 413mm<br>
         Paper Weight: 46g to 250g<br>
-        Paper size: 100×148 mm to 310×432 mm<br>
-        Uncoated paper only
+        Paper size: 100x148 mm to 310x432 mm<br>
+        Riso printers can only print on uncoated paper.
       </p>
 
       <h3>paper in storage</h3>
       <p>
         Munken: Kristall, Lynx, Pure<br>
-        Nautilus
+        Nautilus<br>
+        Please, check with us which weights we have available. Have in mind that we might need
+        to order paper to complete the production of your work and it can take some days.
       </p>
 
       <h3>available colours</h3>
       <p>
-        Yellow U, Fluorescent Pink 806 U, Bright Red 185 U,<br>
-        Green 354 U, Blue 3005 U, Burgundy 7419 U, Black U
+        <span class="swatch" style="background:#FFD400"></span> █ yellow – Yellow U<br>
+        <span class="swatch" style="background:#FF1493"></span> █ fluorescent Pink – 806 U<br>
+        <span class="swatch" style="background:#ED1C24"></span> █ bright Red – 185 U<br>
+        <span class="swatch" style="background:#00A651"></span> █ green – 354 U<br>
+        <span class="swatch" style="background:#0072CE"></span> █ blue – 3005 U<br>
+        <span class="swatch" style="background:#6C1D3A"></span> █ burgundy – 7419 U<br>
+        <span class="swatch" style="background:#000000"></span> █ black – Black U
+      </p>
+
+      <p>
+        There are no limit for the number of colours used, but please have in mind the ink saturation in the paper.
+        We work with 24 hour interval between each printed colour. In case of dense and large areas, it can take longer – this to reduce ink transfer/drag/smudge marks.
+      </p>
+
+      <h3>opacity</h3>
+      <p>
+        Riso inks are not 100% opaque which allows them to be easily blended into making new colours and variants.
+        This is considered as an advantage when you are developing a design that uses a third colour that can be made out of combing two colours.
+      </p>
+
+      <h3>expression</h3>
+      <p>
+        There are 2 main expression in Riso: halftone and grain touch.
+      </p>
+
+      <h4>halftones</h4>
+      <p>
+        This expression shows in a grid like organised dots. The risograph machine automatically processes greyscale images
+        and applies a halftone screen with customizable LPI and angles. If you have a specific preference, please indicate
+        the LPI number when submitting your job. If you have a customised halftone screen, or a dither pattern, that you want
+        to apply in printing, you should then make your image with that halftone and export it as a 600 DPI Bitmap file.
+      </p>
+
+      <h4>grain touch</h4>
+      <p>
+        Here the images are represented by unorganised very fine dots. It appears to be a more organic expression.
+      </p>
+
+      <h3>conditioners</h3>
+      <p>
+        The risograph doesn't produce perfect results as an offset or laser printer. Its unpredictability and messiness is its charm!
+      </p>
+
+      <h3>registration</h3>
+      <p>
+        Because each colour has to be printed separately (meaning that the paper has to go through the machine a number of times)
+        there will always be a degree of mis-registration when printing several colours. The most interesting designs can be those
+        that take this in consideration when using Riso technique. Using bleed and trapping is something to bring into your design
+        in order to make it work.
+      </p>
+
+      <h3>feed marks & double sided marks</h3>
+      <p>
+        The machine uses rubber tires to feed the paper into the press so you should expect print marks, especially when printing
+        with more than one colour or double sided (even with 24 hour drying intervals). But most of the times it is possible to
+        (easily) rub it off with an eraser.
+      </p>
+
+      <h3>ink transfer</h3>
+      <p>
+        There will be always ink transfer when pages with heavy ink come from the printer and get stacked on top of each other.
+        The final artwork also takes time to completely dry, sometimes one month or more so keep this in mind when ordering your Riso prints.
+      </p>
+
+      <h3>file format</h3>
+      <p>
+        All files must come in PDF format, with images and text in grayscale with crop, registration and bleed marks.
+        If more than one colour, you should mention in the title the colour to be printed with. (Ex. Poster_A_blue.pdf, Poster_A_green.pdf)
+      </p>
+
+      <h3>text and shapes</h3>
+      <p>
+        When exporting text and line art keep them as vectors and do not rasterise them. All type and solid shapes must be set to
+        RGB BLACK (R:0 G:0 B:0). Don't use Photoshop for text layout.
+      </p>
+
+      <h3>colour space and transparency</h3>
+      <p>
+        The document 'transparency blend space' must be changed from the default CMYK to greyscale.
       </p>
 
       <h3>binding</h3>
       <p>
-        Saddle Stitched, Side Stitched, Loop Stitched, Sewn Bound,
-        Perfect Bound, Tape Bound, Wire Bound
+        We offer a variety of different finishings and bindings. Some are made using a third party. Here are a few:
+        Saddle Stitched, Side Stitched, Loop Stitched, Sewn Bound, Perfect Bound, Tape Bound, Wire Bound
       </p>
     </section>
 
-    <!-- CONTACT -->
+    <!-- ABOUT -->
+    <section id="about">
+      <h3>about</h3>
+      <p>
+        SMØR Press is an independent and small publishing house based in Trondheim.
+        It is founded and run by the artist Carlos A. Correia and the designer Joana Bruno.
+        Self-oriented for art related books using Riso as a strong and unique technique.
+      </p>
+      <p>
+        The studio is also open for design and/or printing jobs.
+      </p>
+
+      <h3>exhibitions / fairs / workshops</h3>
+      <p>
+        Co-organiser of Trondheim Art Book Fair, 2020<br>
+        Risografi utstilling – BABEL visningsrom for kunst / Trondheim Open, 2018<br>
+        Kunstbokmessen Bastard – Oppland kunstsenter / Lillehammer, 2018 and 2019<br>
+        Workshop on Risography, part of “Publishing Seminar” – Trondheim Academy of Fine Arts – NTNU / Trondheim, 2019
+      </p>
+
+      <h3>clients / collaborations</h3>
+      <p>
+        Art Academy Of Fine Art – NTNU<br>
+        Beijing Trondheim<br>
+        Edith Lundebrekke<br>
+        Edvine Larssen<br>
+        Guerrilla Optimists<br>
+        Heidi-Anett & Lena Katrine<br>
+        LevArt<br>
+        Nordenfjeldske Kunstindustrimuseum<br>
+        Objektiv<br>
+        Per Kristian Nygård<br>
+        Tempe Atelier<br>
+        Trondheim kunstmuseum<br>
+        Trondheim Open<br>
+        Trøndhjem Kunstforening<br>
+        Trøndelag senter for samtidskunst<br>
+        Veslemøy Lilleengen
+      </p>
+
+      <h3>contact</h3>
+      <p>
+        smorpress(at)gmail.com<br>
+        Lademoen Kunstnerverksteder<br>
+        Trondheim
+      </p>
+    </section>
+
+    <!-- CONTACT (kept for compatibility; duplicates 'about' contact) -->
     <section id="contact">
       <p>
         SMØR Press is an independent and small publishing house based in Trondheim.
@@ -294,11 +430,13 @@
 <script>
   function showSection(id, btn) {
     document.querySelectorAll('.content section').forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
+    const target = document.getElementById(id);
+    if (target) target.classList.add('active');
 
     document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    // ensure the books-list (center column) remains visible and scrolled to top when switching
+    if (btn) btn.classList.add('active');
+
+    // ensure the content container scrolls to top when switching
     const content = document.querySelector('.content');
     if (content) content.scrollTop = 0;
   }
