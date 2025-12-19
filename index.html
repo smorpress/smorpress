@@ -10,6 +10,13 @@
   /* include borders in sizing */
   *, *::before, *::after { box-sizing: border-box; }
 
+  :root {
+    --outline-thickness: 6px; /* uniform outline thickness */
+    --left-col: 180px;
+    --right-col: 200px;
+    --gutter: 40px; /* grid gap */
+  }
+
   body {
     margin: 0;
     background: yellow;
@@ -19,53 +26,61 @@
 
   /* outer wrapper around the site with border flush to viewport */
   .site {
-    margin: 0;               /* flush to viewport edges */
-    border: 3px solid blue;  /* outer outline of the website */
+    margin: 0;                                /* flush to viewport edges */
+    border: var(--outline-thickness) solid blue; /* outer outline of the website */
     min-height: 100vh;
+    position: relative; /* for divider pseudo-elements */
+    display: flex;
+    flex-direction: column;
   }
 
   header {
     padding: 30px 40px;
     font-size: 32px;
+    border-bottom: var(--outline-thickness) solid blue; /* horizontal divider for header */
+    background: inherit;
   }
 
   .layout {
-    position: relative; /* for the pseudo-element dividers */
+    position: relative; /* layout positioning remains for internal layout */
     display: grid;
-    grid-template-columns: 180px 1fr 200px; /* first column slightly shorter */
-    gap: 40px;
+    grid-template-columns: var(--left-col) 1fr var(--right-col); /* first column slightly shorter */
+    gap: var(--gutter);
     padding: 20px 40px 40px 40px;
+    align-items: start;
   }
 
-  /* vertical dividers placed in the middle of the column gutters */
-  .layout::before,
-  .layout::after {
+  /* vertical dividers placed in the middle of the column gutters, drawn from top to bottom of .site */
+  .site::before,
+  .site::after {
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 2px;
+    width: var(--outline-thickness);
     background: blue;
     pointer-events: none;
+    z-index: 1;
   }
 
-  /* divider between left and center: left padding + left column width + half gap */
-  .layout::before {
-    left: calc(40px + 180px + 20px - 1px);
+  /* divider between left and center: left padding + left column width + half gap - half thickness */
+  .site::before {
+    left: calc(40px + var(--left-col) + (var(--gutter) / 2) - (var(--outline-thickness) / 2));
   }
 
-  /* divider between center and right: from right edge inward: right padding + right column width + half gap */
-  .layout::after {
-    left: calc(100% - (40px + 200px + 20px + 1px));
+  /* divider between center and right: from right edge inward: right padding + right column width + half gap + half thickness */
+  .site::after {
+    left: calc(100% - (40px + var(--right-col) + (var(--gutter) / 2) + (var(--outline-thickness) / 2)));
   }
 
   /* LEFT COLUMN */
   .nav {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding: 16px;
-    /* no outer box outlines here — divider lines are drawn by .layout pseudo elements */
+    gap: 10px;
+    padding: 10px;
+    background: transparent;
+    z-index: 2; /* sit above the pseudo-element dividers */
   }
 
   .nav button {
@@ -85,8 +100,9 @@
 
   /* CENTER COLUMN */
   .content {
-    padding: 16px;
-    /* no outlines on the column itself */
+    padding: 10px;
+    background: transparent;
+    z-index: 2;
   }
 
   .content section {
@@ -123,20 +139,21 @@
   /* RIGHT COLUMN (empty by design) */
   .right {
     padding: 16px;
-    /* no border here — divider drawn by .layout::after */
+    background: transparent;
+    z-index: 2;
   }
 
-  /* responsive tweak */
+  /* small responsive tweak */
   @media (max-width: 800px) {
+    :root { --outline-thickness: 4px; } /* slightly thinner on small screens */
     .layout {
       grid-template-columns: 1fr;
       padding: 10px;
     }
-    .layout::before,
-    .layout::after {
+    .site::before,
+    .site::after {
       display: none;
     }
-    .site { border-width: 2px; }
   }
 </style>
 </head>
