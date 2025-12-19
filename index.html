@@ -1,164 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>SMØR Press</title>
+<meta charset="UTF-8">
+<title>SMØR Press</title>
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      padding: 40px;
-      background: yellow;
-      font-family: 'Roboto Slab', serif;
-      color: blue;
-    }
+<style>
+  body {
+    margin: 0;
+    background: yellow;
+    color: blue;
+    font-family: 'Roboto Slab', serif;
+  }
 
-    header {
-      text-align: left;
-      font-size: 32px;
-      margin-bottom: 60px;
-    }
+  header {
+    padding: 30px 40px;
+    font-size: 32px;
+  }
 
-    .container {
-      display: flex;
-      justify-content: flex-start;
-      position: relative;
-    }
+  .layout {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    gap: 40px;
+    padding: 0 40px 40px 40px;
+  }
 
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      text-align: left;
-    }
+  /* LEFT COLUMN */
+  .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 
-    li {
-      margin: 18px 0;
-      position: relative;
-      cursor: pointer;
-      max-width: 600px;
-    }
+  .nav button {
+    background: none;
+    border: none;
+    color: blue;
+    font-family: inherit;
+    font-size: 16px;
+    text-align: left;
+    padding: 0;
+    cursor: pointer;
+  }
 
-    .title {
-      display: block;
-    }
+  .nav button.active {
+    text-decoration: underline;
+  }
 
-    .author {
-      font-size: 14px;
-      opacity: 0.85;
-    }
+  /* CENTER COLUMN */
+  .content section {
+    display: none;
+    max-width: 700px;
+  }
 
-    .hover-image {
-      display: none;
-      position: absolute;
-      left: 0;
-      top: 100%;
-      margin-top: 10px;
-      z-index: 10;
-    }
+  .content section.active {
+    display: block;
+  }
 
-    .hover-image img {
-      max-width: 240px;
-      height: auto;
-      display: block;
-    }
+  .book {
+    margin-bottom: 18px;
+  }
 
-    li:hover .hover-image {
-      display: block;
-    }
-  </style>
+  .book .author {
+    font-size: 14px;
+  }
+
+  h3 {
+    margin-top: 30px;
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  ul {
+    padding-left: 18px;
+  }
+</style>
 </head>
 
 <body>
 
-  <header>SMØR Press</header>
+<header>SMØR Press</header>
 
-  <div class="container">
-    <ul>
-      <li>
-        <span class="title">Wet Trace Draws a New Coastline (Curtain VI)</span>
+<div class="layout">
+
+  <!-- LEFT COLUMN -->
+  <nav class="nav">
+    <button class="active" onclick="showSection('books', this)">books</button>
+    <button onclick="showSection('studio', this)">studio</button>
+    <button onclick="showSection('contact', this)">contact</button>
+  </nav>
+
+  <!-- CENTER COLUMN -->
+  <div class="content">
+
+    <!-- BOOKS -->
+    <section id="books" class="active">
+      <div class="book">
+        Wet Trace Draws a New Coastline (Curtain VI)<br>
         <span class="author">Edvine Larssen</span>
-        <div class="hover-image">
-          <img src="image1.jpg" alt="">
-        </div>
-      </li>
-
-      <li>
-        <span class="title">from:to:</span>
+      </div>
+      <div class="book">
+        from:to:<br>
         <span class="author">Fleur Pierets</span>
-        <div class="hover-image">
-          <img src="image2.jpg" alt="">
-        </div>
-      </li>
-
-      <li>
-        <span class="title">SYMMETRIES</span>
+      </div>
+      <div class="book">
+        SYMMETRIES<br>
         <span class="author">Edith Lundebrekke</span>
-        <div class="hover-image">
-          <img src="image1.jpg" alt="">
-        </div>
-      </li>
-
-      <li>
-        <span class="title">Certainty was a flash. Lull, a lapse of the ever-present.</span>
+      </div>
+      <div class="book">
+        Certainty was a flash. Lull, a lapse of the ever-present.<br>
         <span class="author">William A.F. Bentsen</span>
-        <div class="hover-image">
-          <img src="image2.jpg" alt="">
-        </div>
-      </li>
-
-      <li>
-        <span class="title">Noe Steder Jeg Har Vært</span>
+      </div>
+      <div class="book">
+        Noe Steder Jeg Har Vært<br>
         <span class="author">Hilde Frantzen</span>
-        <div class="hover-image">
-          <img src="image1.jpg" alt="">
-        </div>
-      </li>
-
-      <li>
-        <span class="title">JE DIS - JEG SIER</span>
+      </div>
+      <div class="book">
+        JE DIS – JEG SIER<br>
         <span class="author">Morgane Letot</span>
-        <div class="hover-image">
-          <img src="image2.jpg" alt="">
-        </div>
-      </li>
-
-      <li>
-        <span class="title">Tchuwju</span>
+      </div>
+      <div class="book">
+        Tchuwju<br>
         <span class="author">Andreas Wallroth</span>
-        <div class="hover-image">
-          <img src="image1.jpg" alt="">
-        </div>
-      </li>
-
-      <li>
-        <span class="title">Vortexringer og lysende nattskyer</span>
+      </div>
+      <div class="book">
+        Vortexringer og lysende nattskyer<br>
         <span class="author">Karoline Sætre</span>
-        <div class="hover-image">
-          <img src="image2.jpg" alt="">
-        </div>
-      </li>
-
-      <li>
-        <span class="title">om å vokse opp / være voksen</span>
+      </div>
+      <div class="book">
+        om å vokse opp / være voksen<br>
         <span class="author">Karoline Sætre</span>
-        <div class="hover-image">
-          <img src="image1.jpg" alt="">
-        </div>
-      </li>
-
-      <li>
-        <span class="title">From a neglected panorama and the poetics of sawing</span>
+      </div>
+      <div class="book">
+        From a neglected panorama and the poetics of sawing<br>
         <span class="author">Enrique Roura</span>
-        <div class="hover-image">
-          <img src="image2.jpg" alt="">
-        </div>
-      </li>
-    </ul>
+      </div>
+    </section>
+
+    <!-- STUDIO -->
+    <section id="studio">
+      <p>
+        We receive artworks from talented people and help them developing their ideas.
+        You are free to print or not with us, it's up to you.
+      </p>
+      <p>
+        When it comes to graphic design, we do everything related to printed matter
+        (publications, flyers, posters...), visual identity and advertisement.
+      </p>
+
+      <h3>printing</h3>
+      <p>
+        RISO Printer-Duplicator is a stencil printer designed mainly for high-volume
+        photocopying, duplicating and printing.
+      </p>
+      <p>
+        We are using a Riso SF 9350 machine.
+      </p>
+
+      <h3>paper specifications</h3>
+      <p>
+        Printable Area: 291 × 413mm<br>
+        Paper Weight: 46g to 250g<br>
+        Paper size: 100×148 mm to 310×432 mm<br>
+        Uncoated paper only
+      </p>
+
+      <h3>paper in storage</h3>
+      <p>
+        Munken: Kristall, Lynx, Pure<br>
+        Nautilus
+      </p>
+
+      <h3>available colours</h3>
+      <p>
+        Yellow U, Fluorescent Pink 806 U, Bright Red 185 U,<br>
+        Green 354 U, Blue 3005 U, Burgundy 7419 U, Black U
+      </p>
+
+      <h3>binding</h3>
+      <p>
+        Saddle Stitched, Side Stitched, Loop Stitched, Sewn Bound,
+        Perfect Bound, Tape Bound, Wire Bound
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <p>
+        SMØR Press is an independent and small publishing house based in Trondheim.
+        Founded and run by the artist Carlos A. Correia and the designer Joana Bruno.
+      </p>
+
+      <h3>exhibitions / fairs / workshops</h3>
+      <p>
+        Trondheim Art Book Fair (2020)<br>
+        Risografi utstilling – BABEL (2018)<br>
+        Kunstbokmessen Bastard (2018–2019)<br>
+        Workshop on Risography – NTNU (2019)
+      </p>
+
+      <h3>clients / collaborations</h3>
+      <p>
+        NTNU, Trondheim kunstmuseum, Trøndelag senter for samtidskunst,
+        Nordenfjeldske Kunstindustrimuseum, Trondheim Open, Veslemøy Lilleengen
+      </p>
+
+      <h3>contact</h3>
+      <p>
+        smorpress(at)gmail.com<br>
+        Lademoen Kunstnerverksteder<br>
+        Trondheim
+      </p>
+    </section>
+
   </div>
+
+  <!-- RIGHT COLUMN (empty by design) -->
+  <div></div>
+
+</div>
+
+<script>
+  function showSection(id, btn) {
+    document.querySelectorAll('.content section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+
+    document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+</script>
 
 </body>
 </html>
