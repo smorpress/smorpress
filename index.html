@@ -12,7 +12,7 @@
 
   :root {
     --outline-thickness: 6px; /* uniform outline thickness */
-    --left-col: 140px;
+    --left-col: 180px;
     --gutter: 40px; /* grid gap */
   }
 
@@ -35,23 +35,23 @@
 
   header {
     padding: 30px 40px;
-    font-size: 16px;
+    font-size: 32px;
     border-bottom: var(--outline-thickness) solid blue; /* horizontal divider for header */
     background: inherit;
   }
 
   .layout {
-    position: relative; /* layout positioning remains for internal layout */
+    position: relative;
     display: grid;
-    grid-template-columns: var(--left-col) 1fr var(--right-col); /* first column slightly shorter */
+    /* left column + center column only (right column removed) */
+    grid-template-columns: var(--left-col) 1fr;
     gap: var(--gutter);
     padding: 20px 40px 40px 40px;
     align-items: start;
   }
 
-  /* vertical dividers placed in the middle of the column gutters, drawn from top to bottom of .site */
-  .site::before,
-  .site::after {
+  /* single vertical divider placed between the two columns, spanning full site height */
+  .site::before {
     content: "";
     position: absolute;
     top: 0;
@@ -60,26 +60,18 @@
     background: blue;
     pointer-events: none;
     z-index: 1;
-  }
-
-  /* divider between left and center: left padding + left column width + half gap - half thickness */
-  .site::before {
+    /* compute position: left padding + left column width + half gap - half thickness */
     left: calc(40px + var(--left-col) + (var(--gutter) / 2) - (var(--outline-thickness) / 2));
-  }
-
-  /* divider between center and right: from right edge inward: right padding + right column width + half gap + half thickness */
-  .site::after {
-    left: calc(100% - (40px + var(--right-col) + (var(--gutter) / 2) + (var(--outline-thickness) / 2)));
   }
 
   /* LEFT COLUMN */
   .nav {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 10px;
+    gap: 12px;
+    padding: 16px;
     background: transparent;
-    z-index: 2; /* sit above the pseudo-element dividers */
+    z-index: 2; /* sit above the pseudo-element divider */
   }
 
   .nav button {
@@ -99,14 +91,18 @@
 
   /* CENTER COLUMN */
   .content {
-    padding: 10px;
+    padding: 16px;
     background: transparent;
     z-index: 2;
   }
 
+  /* ensure the books list is displayed in the center column */
+  .content .books-list {
+    max-width: 700px;
+  }
+
   .content section {
     display: none;
-    max-width: 700px;
   }
 
   .content section.active {
@@ -135,15 +131,14 @@
     padding-left: 18px;
   }
 
-  /* small responsive tweak */
+  /* responsive tweak */
   @media (max-width: 800px) {
     :root { --outline-thickness: 4px; } /* slightly thinner on small screens */
     .layout {
       grid-template-columns: 1fr;
       padding: 10px;
     }
-    .site::before,
-    .site::after {
+    .site::before {
       display: none;
     }
   }
@@ -170,45 +165,47 @@
 
     <!-- BOOKS -->
     <section id="books" class="active">
-      <div class="book">
-        Wet Trace Draws a New Coastline (Curtain VI)<br>
-        <span class="author">Edvine Larssen</span>
-      </div>
-      <div class="book">
-        from:to:<br>
-        <span class="author">Fleur Pierets</span>
-      </div>
-      <div class="book">
-        SYMMETRIES<br>
-        <span class="author">Edith Lundebrekke</span>
-      </div>
-      <div class="book">
-        Certainty was a flash. Lull, a lapse of the ever-present.<br>
-        <span class="author">William A.F. Bentsen</span>
-      </div>
-      <div class="book">
-        Noe Steder Jeg Har Vært<br>
-        <span class="author">Hilde Frantzen</span>
-      </div>
-      <div class="book">
-        JE DIS – JEG SIER<br>
-        <span class="author">Morgane Letot</span>
-      </div>
-      <div class="book">
-        Tchuwju<br>
-        <span class="author">Andreas Wallroth</span>
-      </div>
-      <div class="book">
-        Vortexringer og lysende nattskyer<br>
-        <span class="author">Karoline Sætre</span>
-      </div>
-      <div class="book">
-        om å vokse opp / være voksen<br>
-        <span class="author">Karoline Sætre</span>
-      </div>
-      <div class="book">
-        From a neglected panorama and the poetics of sawing<br>
-        <span class="author">Enrique Roura</span>
+      <div class="books-list">
+        <div class="book">
+          Wet Trace Draws a New Coastline (Curtain VI)<br>
+          <span class="author">Edvine Larssen</span>
+        </div>
+        <div class="book">
+          from:to:<br>
+          <span class="author">Fleur Pierets</span>
+        </div>
+        <div class="book">
+          SYMMETRIES<br>
+          <span class="author">Edith Lundebrekke</span>
+        </div>
+        <div class="book">
+          Certainty was a flash. Lull, a lapse of the ever-present.<br>
+          <span class="author">William A.F. Bentsen</span>
+        </div>
+        <div class="book">
+          Noe Steder Jeg Har Vært<br>
+          <span class="author">Hilde Frantzen</span>
+        </div>
+        <div class="book">
+          JE DIS – JEG SIER<br>
+          <span class="author">Morgane Letot</span>
+        </div>
+        <div class="book">
+          Tchuwju<br>
+          <span class="author">Andreas Wallroth</span>
+        </div>
+        <div class="book">
+          Vortexringer og lysende nattskyer<br>
+          <span class="author">Karoline Sætre</span>
+        </div>
+        <div class="book">
+          om å vokse opp / være voksen<br>
+          <span class="author">Karoline Sætre</span>
+        </div>
+        <div class="book">
+          From a neglected panorama and the poetics of sawing<br>
+          <span class="author">Enrique Roura</span>
+        </div>
       </div>
     </section>
 
@@ -289,7 +286,9 @@
     </section>
 
   </div>
+
 </div>
+
 </div> <!-- .site -->
 
 <script>
@@ -299,6 +298,9 @@
 
     document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+    // ensure the books-list (center column) remains visible and scrolled to top when switching
+    const content = document.querySelector('.content');
+    if (content) content.scrollTop = 0;
   }
 </script>
 
