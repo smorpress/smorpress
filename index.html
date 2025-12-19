@@ -1,192 +1,165 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SMØR Press</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap" rel="stylesheet" />
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      font-family: 'Lucida Sans', sans-serif;
-      background-color: #ffeb3b;
-      color: #3b2c85;
+      padding: 0;
+      background: yellow;
+      font-family: 'Roboto Slab', serif;
+      color: blue;
     }
 
-    nav {
+    header {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 32px;
+    }
+
+    .container {
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      padding: 1rem 2rem;
-      background-color: #ffeb3b;
+      margin-top: 60px;
+      position: relative;
     }
 
-    nav a {
-      color: #3b2c85;
-      text-decoration: none;
-      font-family: 'Roboto Slab', serif;
-      font-size: 1.5rem;
-      font-weight: normal;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
     }
 
-    .content {
-      padding: 2rem;
-    }
-
-    h1, h2 {
-      font-family: 'Roboto Slab', serif;
-      font-weight: 400;
-    }
-
-    h1 {
-      font-size: 2rem;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-    }
-
-    section {
-      display: none;
-    }
-
-    section.active {
-      display: block;
-    }
-
-    .books-section {
-      display: flex;
-    }
-
-    .book-list {
-      width: 20%;
-      border-right: 2px solid #3b2c85;
-    }
-
-    .book-list div {
-      padding: 1rem;
-      border-bottom: 1px solid #3b2c85;
+    li {
+      margin: 18px 0;
+      position: relative;
       cursor: pointer;
     }
 
-    .book-list div:hover {
-      background-color: #d1c4e9;
-    }
-
-    .book-preview {
-      flex-grow: 1;
-      padding: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .book-preview img {
-      max-width: 80%;
-      height: auto;
-      display: none;
-    }
-
-    .book-preview img.active {
+    .title {
       display: block;
     }
 
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-      }
+    .author {
+      font-size: 14px;
+      opacity: 0.85;
+    }
 
-      .books-section {
-        flex-direction: column;
-      }
+    .hover-image {
+      display: none;
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translateX(-50%);
+      margin-top: 10px;
+      z-index: 10;
+    }
 
-      .book-list {
-        width: 100%;
-        border-right: none;
-        border-bottom: 2px solid #3b2c85;
-        display: flex;
-        overflow-x: auto;
-        white-space: nowrap;
-      }
+    .hover-image img {
+      max-width: 240px;
+      height: auto;
+      display: block;
+    }
 
-      .book-list div {
-        display: inline-block;
-        border-bottom: none;
-        border-right: 1px solid #3b2c85;
-      }
-
-      .book-preview {
-        padding: 1rem;
-      }
+    li:hover .hover-image {
+      display: block;
     }
   </style>
 </head>
+
 <body>
-  <nav>
-    <a href="#" onclick="showSection('about')">SMØR Press</a>
-    <a href="#" onclick="showSection('studio')">studio&print</a>
-    <a href="#" onclick="showSection('books')">books</a>
-  </nav>
-  <div class="content">
-    <section id="about" class="active">
-      <p>Founded in 2017, this is a publishing and printing house run by the designer Joana Bruno and the artist Carlos A. Correia. SMØR specializes in riso printing technique to produce art publications, fanzines and other printed matter with the vision of supporting the printed matter as a very special artistic medium and a dissemination tool for artists.</p>
-    </section>
 
-    <section id="books">
-      <div class="books-section">
-        <div class="book-list">
-          <div onmouseover="showBookImage('edith')">Edith Lundebrekke</div>
-          <div onmouseover="showBookImage('william')">William A.F. Bentsen</div>
-          <div onmouseover="showBookImage('hilde')">Hilde Frantzen</div>
-          <div onmouseover="showBookImage('morgane')">Morgane Letot</div>
-          <div onmouseover="showBookImage('andreas')">Andreas Wallroth</div>
-          <div onmouseover="showBookImage('karoline')">Karoline Sætre</div>
-          <div onmouseover="showBookImage('karoline2')">Karoline Sætre om å vokse</div>
-          <div onmouseover="showBookImage('enrique')">Enrique Roura</div>
-          <div onmouseover="showBookImage('friends')">the friends</div>
-        </div>
-        <div class="book-preview">
-          <img id="edith" src="edith.jpg" alt="Edith Lundebrekke" />
-          <img id="william" src="william.jpg" alt="William A.F. Bentsen" />
-          <img id="hilde" src="hilde.jpg" alt="Hilde Frantzen" />
-          <img id="morgane" src="morgane.jpg" alt="Morgane Letot" />
-          <img id="andreas" src="andreas.jpg" alt="Andreas Wallroth" />
-          <img id="karoline" src="karoline.jpg" alt="Karoline Sætre" />
-          <img id="karoline2" src="karoline2.jpg" alt="Karoline Sætre om å vokse" />
-          <img id="enrique" src="enrique.jpg" alt="Enrique Roura" />
-          <img id="friends" src="friends.jpg" alt="the friends" />
-        </div>
-      </div>
-    </section>
+  <header>SMØR Press</header>
 
-    <section id="studio">
-      <h2>design:</h2>
-      <p>We receive artworks from talented people and help them develop their ideas. You are free to print or not with us, it's up to you. When it comes to graphic design, we do everything related to printed matter (publications, flyers, posters...), visual identity and advertisement.</p>
-      <h2>printing:</h2>
-      <p>RISO Printer-Duplicator is a stencil printer designed mainly for high-volume photocopying, duplicating and printing. We are using a Riso SF 9350 machine. You can print posters, business cards, brochures, publications or any other printed matter. If you think your project suits the Riso technique, you should try our services!</p>
-      <h2>studio visits:</h2>
-      <p>You are welcome to visit us at Svartlamon, Trondheim. Whether you want to discuss a project, see some of our books or simply have a chat about print, just send us an email at <a href="mailto:smorpress@gmail.com">smorpress@gmail.com</a> to make an appointment. We’d love to hear from you.</p>
-    </section>
+  <div class="container">
+    <ul>
+      <li>
+        <span class="title">Wet Trace Draws a New Coastline (Curtain VI)</span>
+        <span class="author">Edvine Larssen</span>
+        <div class="hover-image">
+          <img src="image1.jpg" alt="Book image">
+        </div>
+      </li>
+
+      <li>
+        <span class="title">from:to:</span>
+        <span class="author">Fleur Pierets</span>
+        <div class="hover-image">
+          <img src="image2.jpg" alt="Book image">
+        </div>
+      </li>
+
+      <li>
+        <span class="author">Edith Lundebrekke</span>
+        <span class="title">SYMMETRIES</span>
+        <div class="hover-image">
+          <img src="image1.jpg" alt="Book image">
+        </div>
+      </li>
+
+      <li>
+        <span class="title">Certainty was a flash. Lull, a lapse of the ever-present.</span>
+        <span class="author">William A.F. Bentsen</span>
+        <div class="hover-image">
+          <img src="image2.jpg" alt="Book image">
+        </div>
+      </li>
+
+      <li>
+        <span class="title">Noe Steder Jeg Har Vært</span>
+        <span class="author">Hilde Frantzen</span>
+        <div class="hover-image">
+          <img src="image1.jpg" alt="Book image">
+        </div>
+      </li>
+
+      <li>
+        <span class="title">JE DIS - JEG SIER</span>
+        <span class="author">Morgane Letot</span>
+        <div class="hover-image">
+          <img src="image2.jpg" alt="Book image">
+        </div>
+      </li>
+
+      <li>
+        <span class="title">Tchuwju</span>
+        <span class="author">Andreas Wallroth</span>
+        <div class="hover-image">
+          <img src="image1.jpg" alt="Book image">
+        </div>
+      </li>
+
+      <li>
+        <span class="title">Vortexringer og lysende nattskyer</span>
+        <span class="author">Karoline Sætre</span>
+        <div class="hover-image">
+          <img src="image2.jpg" alt="Book image">
+        </div>
+      </li>
+
+      <li>
+        <span class="title">om å vokse opp / være voksen</span>
+        <span class="author">Karoline Sætre</span>
+        <div class="hover-image">
+          <img src="image1.jpg" alt="Book image">
+        </div>
+      </li>
+
+      <li>
+        <span class="title">From a neglected panorama and the poetics of sawing</span>
+        <span class="author">Enrique Roura</span>
+        <div class="hover-image">
+          <img src="image2.jpg" alt="Book image">
+        </div>
+      </li>
+    </ul>
   </div>
 
-  <script>
-    function showSection(sectionId) {
-      document.querySelectorAll('section').forEach(section => {
-        section.classList.remove('active');
-      });
-      document.getElementById(sectionId).classList.add('active');
-    }
-
-    function showBookImage(id) {
-      document.querySelectorAll('.book-preview img').forEach(img => {
-        img.classList.remove('active');
-      });
-      const img = document.getElementById(id);
-      if (img) {
-        img.classList.add('active');
-      }
-    }
-  </script>
 </body>
 </html>
