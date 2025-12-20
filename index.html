@@ -12,8 +12,9 @@
 
   :root {
     --outline-thickness: 6px; /* uniform outline thickness */
-    --left-col: 180px;
+    --left-col: 150px;
     --gutter: 40px; /* grid gap */
+    --side-padding: 30px; /* align header padding and layout left/right padding */
   }
 
   body {
@@ -36,7 +37,7 @@
 
   /* header same size as body text and reduced padding */
   header {
-    padding: 30px 30px;
+    padding: 30px var(--side-padding);
     font-size: 14px;
     border-bottom: var(--outline-thickness) solid blue; /* horizontal divider for header */
     background: inherit;
@@ -49,7 +50,8 @@
     /* left column + center column only (right column removed) */
     grid-template-columns: var(--left-col) 1fr;
     gap: var(--gutter);
-    padding: 20px 40px 40px 40px;
+    /* use same horizontal padding as header so nav buttons align with header text */
+    padding: 20px var(--side-padding) 40px var(--side-padding);
     align-items: start;
   }
 
@@ -63,8 +65,8 @@
     background: blue;
     pointer-events: none;
     z-index: 1;
-    /* compute position: left padding + left column width + half gap - half thickness */
-    left: calc(40px + var(--left-col) + (var(--gutter) / 2) - (var(--outline-thickness) / 2));
+    /* compute position: side padding + left column width + half gap - half thickness */
+    left: calc(var(--side-padding) + var(--left-col) + (var(--gutter) / 2) - (var(--outline-thickness) / 2));
   }
 
   /* LEFT COLUMN */
@@ -365,8 +367,8 @@
 
       <h3>exhibitions / fairs / workshops</h3>
       <p>
-        Kunstbok Oslo, Oslo 2025
-        Bastard, Lillehammer 2025
+        Kunstbok Oslo, Oslo 2025<br>  
+        Bastard, Lillehammer 2025<br>
         Co-organiser of Trondheim Art Book Fair, 2020<br>
         Risografi utstilling – BABEL visningsrom for kunst / Trondheim Open, 2018<br>
         Kunstbokmessen Bastard – Oppland kunstsenter / Lillehammer, 2018 and 2019<br>
