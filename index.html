@@ -94,12 +94,10 @@
 
   /* CENTER COLUMN */
   .content {
-    padding: 14px;
+    padding: 0 14px 14px 14px; /* keep padding on right, bottom and left — remove top padding */
     background: transparent;
     z-index: 2;
   }
-
-  /* ensure the books list is displayed in the center column */
   .content .books-list {
     max-width: 700px;
   }
@@ -126,14 +124,10 @@
     margin-top: 30px;
     font-size: 14px;
   }
-
-  /* remove top margin when the heading is the first child of a section,
-     so the section content aligns with the nav links */
   .content section > h3:first-child,
   .content section > p:first-child {
     margin-top: 0;
   }
-
   p {
     font-size: 14px;
     line-height: 1.4;
