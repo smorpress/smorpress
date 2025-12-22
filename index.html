@@ -155,16 +155,26 @@
   /* responsive tweak */
   @media (max-width: 800px) {
     :root { --outline-thickness: 4px; } /* slightly thinner on small screens */
+
+    /* stack into a single column and use smaller side padding */
     .layout {
       grid-template-columns: 1fr;
       padding: 10px; /* main layout padding reduced to 10px */
     }
+
+    /* hide desktop divider */
     .site::before {
       display: none;
     }
+
+    /* header uses the same left padding as layout, so left edges align */
     header { padding: 10px; }
-    /* make the content padding match the rest of the layout so everything aligns on small screens */
-    .content { padding: 0 10px 10px 10px; }
+
+    /* ensure nav and content sit flush with the layout's left padding:
+       - layout provides left/right padding (10px)
+       - .nav and .content must not add additional left padding */
+    .nav { padding-left: 0; }
+    .content { padding: 0 0 10px 0; } /* rely on .layout padding for horizontal inset */
   }
 </style>
 </head>
