@@ -157,12 +157,14 @@
     :root { --outline-thickness: 4px; } /* slightly thinner on small screens */
     .layout {
       grid-template-columns: 1fr;
-      padding: 10px;
+      padding: 10px; /* main layout padding reduced to 10px */
     }
     .site::before {
       display: none;
     }
     header { padding: 10px; }
+    /* make the content padding match the rest of the layout so everything aligns on small screens */
+    .content { padding: 0 10px 10px 10px; }
   }
 </style>
 </head>
@@ -369,7 +371,7 @@
 
       <h3>exhibitions / fairs / workshops</h3>
       <p>
-        Kunstbok Oslo, Oslo 2025<br>  
+        Kunstbok Oslo, Oslo 2025<br>
         Bastard, Lillehammer 2025<br>
         Co-organiser of Trondheim Art Book Fair, 2020<br>
         Risografi utstilling – BABEL visningsrom for kunst / Trondheim Open, 2018<br>
